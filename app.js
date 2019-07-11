@@ -4,6 +4,7 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var flash = require("connect-flash");
 var passport = require("passport");
+
 var LocalStrategy = require("passport-local");
 var methodOverride = require("method-override");
 var Campground = require("./models/campgrounds");
@@ -15,7 +16,8 @@ var commentRoutes = require("./routes/comments");
 var campgroundsRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb://localhost:27017/yelpcamp",{useNewUrlParser: true});
+mongoose.connect("mongodb+srv://dheeraj15:dheeraj13@cluster0-otneq.mongodb.net/test?retryWrites=true&w=majority")
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs'); 
 app.use(express.static(__dirname + "/public"));
@@ -31,6 +33,7 @@ app.use(require("express-session")({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
@@ -49,4 +52,4 @@ app.use(commentRoutes);
 
 app.listen(2000,function(){
     console.log("Yelp camp app started");
-})
+});
