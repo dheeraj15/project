@@ -50,6 +50,6 @@ app.use(campgroundsRoutes);
 app.use(commentRoutes);
 
 
-app.listen(process.env.port,function(){
+app.listen(process.env.PORT||2000,function(){
     console.log("Yelp camp app started");
 });
