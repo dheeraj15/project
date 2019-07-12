@@ -50,6 +50,7 @@ app.use(campgroundsRoutes);
 app.use(commentRoutes);
 
 
-app.listen(process.env.PORT||2000,function(){
-    console.log("Yelp camp app started");
+const PORT = process.env.PORT || 2000;
+app.listen(PORT, () => {
+    console.log(`Our app is running on port ${ PORT }`);
 });
