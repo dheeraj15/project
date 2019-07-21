@@ -16,8 +16,13 @@ var commentRoutes = require("./routes/comments");
 var campgroundsRoutes = require("./routes/campgrounds");
 var indexRoutes = require("./routes/index");
 
-mongoose.connect("mongodb+srv://dheeraj15:dheeraj13@cluster0-otneq.mongodb.net/test?retryWrites=true&w=majority")
+//mongoose.connect("mongodb://localhost:27017/yelpcamp",{useNewUrlParser: true});
 
+mongoose.connect("mongodb+srv://dheeraj15:dheeraj13@cluster0-otneq.mongodb.net/test?retryWrites=true&w=majority")
+app.use(function (err, req, res, next) {
+    console.log('This is the invalid field ->', err.field)
+    next(err)
+  })
 app.use(bodyParser.urlencoded({extended: true}));
 app.set('view engine', 'ejs'); 
 app.use(express.static(__dirname + "/public"));
@@ -52,5 +57,5 @@ app.use(commentRoutes);
 
 const PORT = process.env.PORT || 2000;
 app.listen(PORT, () => {
-    console.log(`Our app is running on port ${ PORT }`);
+    console.log(`Farm app is running on port ${ PORT }`);
 });
