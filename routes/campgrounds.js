@@ -178,6 +178,9 @@ router.put("/campgrounds/:id",middleware.checkCampgroundOwnership,upload.single(
             //onsole.log(req.body.price);
             campground.name = req.body.campground.name;
             campground.price = req.body.campground.price;
+            campground.location = req.body.campground.location;
+            campground.quantity = req.body.campground.quantity;
+            campground.contact = req.body.campground.contact;
             campground.description = req.body.campground.description;
             campground.save();
             req.flash("success","Updated successfully");

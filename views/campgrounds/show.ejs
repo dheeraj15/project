@@ -16,9 +16,12 @@
                     <div class="caption-full">
                        <h4 class="pull-right"><%=campground.price%> Rs./kg</h4> 
                        <h4><a><%=campground.name %></a></h4>
+                       <h4> <b>quantity:</b><%= campground.quantity %> kg</h4>
+                       <h4> <b>Contact:</b>  <%= campground.contact %> </h4>
+                       <h4> <b>Location:</b> <%= campground.location %> </h4>
                        <p><%=campground.description %></p>
                        <p>
-                           <em>Posted by:<%= campground.author.username %></em>
+                        <em>Submitted by: <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a></em>
                         </p>
                         <% if(currentUser && campground.author.id.equals(currentUser._id)) {%>
                             <a class="btn btn-warning" href="/campgrounds/<%=campground._id %>/edit">Edit</a>
@@ -65,7 +68,6 @@
 </div>
 <p>
 </p>
-
 
 
 <% include ../partial/footer %>
