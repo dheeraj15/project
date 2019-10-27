@@ -98,13 +98,13 @@ router.post('/forgot', function(req, res, next) {
         service: 'Gmail', 
         auth: {
           user: 'farmapp2141@gmail.com',
-          pass: 'DheerajPrashant123'
+          pass: 'dheerajgolu'
         }
       });
       var mailOptions = {
         to: user.email,
         from: 'farmapp2141@gmail.com',
-        subject: 'Farm App Password Reset',
+        subject: 'Shopping App Password Reset',
         text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
           'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
           'http://' + req.headers.host + '/reset/' + token + '\n\n' +
@@ -161,13 +161,13 @@ router.post('/reset/:token', function(req, res) {
       var smtpTransport = nodemailer.createTransport({
         service: 'Gmail', 
         auth: {
-          user: 'learntocodeinfo@gmail.com',
-          pass: process.env.GMAILPW
+          user: 'farmapp2141@gmail.com',
+          pass: 'dheerajgolu'
         }
       });
       var mailOptions = {
         to: user.email,
-        from: 'learntocodeinfo@mail.com',
+        from: 'farmapp2141@gmail.com',
         subject: 'Your password has been changed',
         text: 'Hello,\n\n' +
           'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
