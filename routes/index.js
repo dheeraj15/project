@@ -54,7 +54,7 @@ router.post("/login", passport.authenticate("local",
         successRedirect: "/campgrounds",
         failureRedirect: "/login",
         failureFlash: true,
-        successFlash: 'Welcome to Farm App!'
+        successFlash: 'Welcome to Shopping App!'
     }), function(req, res){
 });
 
